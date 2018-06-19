@@ -5,6 +5,8 @@
  */
 package meubusao.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Pedro Neto, Natália Brito
@@ -12,6 +14,7 @@ package meubusao.model;
 public class Linha {
     private int id;
     private String nome;
+    private ArrayList<Ponto> pontos;
     
     Linha(){}
     
