@@ -34,7 +34,7 @@ public class AddMotorista extends javax.swing.JDialog {
         jLabelNome = new javax.swing.JLabel();
         jLabelCpf = new javax.swing.JLabel();
         jLabelSituacao = new javax.swing.JLabel();
-        jTextNome = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
         jButtonAdd = new javax.swing.JButton();
         jTextFieldSituacao = new javax.swing.JTextField();
@@ -69,7 +69,7 @@ public class AddMotorista extends javax.swing.JDialog {
                             .addComponent(jLabelNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextNome)
+                            .addComponent(jTextFieldNome)
                             .addComponent(jTextFieldCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                             .addComponent(jTextFieldSituacao))))
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -80,7 +80,7 @@ public class AddMotorista extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNome)
-                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCpf)
@@ -99,7 +99,7 @@ public class AddMotorista extends javax.swing.JDialog {
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         try{
-            MotoristaController.saveMotorista(jLabelNome.getText(),jLabelCpf.getText(),Integer.parseInt(jTextFieldSituacao.getText()));
+            MotoristaController.saveMotorista(jTextFieldNome.getText(),jTextFieldCpf.getText(),Integer.parseInt(jTextFieldSituacao.getText()));
         }catch (Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);    
         }
@@ -154,7 +154,7 @@ public class AddMotorista extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelSituacao;
     private javax.swing.JTextField jTextFieldCpf;
+    private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldSituacao;
-    private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }

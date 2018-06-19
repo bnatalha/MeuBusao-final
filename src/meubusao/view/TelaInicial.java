@@ -5,12 +5,11 @@
  */
 package meubusao.view;
 
-import meubusao.model.Onibus;
-import meubusao.model.Motorista;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.DefaultListModel;
-import meubusao.dao.*;
+import meubusao.controller.*;
+//import meubusao.view.*;
  
 /**
  *
@@ -18,23 +17,9 @@ import meubusao.dao.*;
  */
 public class TelaInicial extends javax.swing.JFrame {
  
-    /**
-     * Creates new form TelaInicial
-     */
-    DefaultListModel<Onibus> modelOnibus = new DefaultListModel<>();
-    DefaultListModel<Motorista> modelMotorista = new DefaultListModel<>();
- 
+    
     public TelaInicial() {
-        initComponents();
- 
-        DefaultListModel modeloM = new DefaultListModel();
-        DefaultListModel modeloP = new DefaultListModel();
-        listaOnibus.setModel(modeloM);
-        listaMotoristas.setModel(modeloP);
- 
-        listaOnibus.removeAll();
-        listaMotoristas.removeAll();
- 
+        initComponents(); 
     }
  
     /**
@@ -52,7 +37,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaOnibus = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listaMotoristas = new javax.swing.JList<Motorista>();
+        listaMotoristas = new javax.swing.JList<>();
         addMotorista = new javax.swing.JButton();
         addLinha = new javax.swing.JButton();
         addPontos = new javax.swing.JButton();
@@ -78,7 +63,6 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        listaOnibus.setModel(modelOnibus);
         listaOnibus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaOnibusMouseClicked(evt);
@@ -86,7 +70,6 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaOnibus);
 
-        listaMotoristas.setModel(modelMotorista);
         listaMotoristas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listaMotoristasValueChanged(evt);
@@ -134,11 +117,11 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addGap(126, 126, 126)
                         .addComponent(jLabelMotoristas, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonAtualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -180,15 +163,12 @@ public class TelaInicial extends javax.swing.JFrame {
  
   
     private void listaOnibusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaOnibusMouseClicked
-        System.out.println(listaOnibus.getSelectedValue());
-        String temp = listaOnibus.getSelectedValue().toString();
-        System.out.println(temp);
+
     }//GEN-LAST:event_listaOnibusMouseClicked
 
     private void addMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMotoristaActionPerformed
-        DetalhesMotorista d = new DetalhesMotorista();
-        d.setVisible(true);
-        System.out.print("cfd");
+        AddMotorista addo = new AddMotorista(this,true);
+        addo.setVisible(true);
     }//GEN-LAST:event_addMotoristaActionPerformed
     
     private void addOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOnibusActionPerformed
@@ -219,7 +199,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSobre;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<Motorista> listaMotoristas;
-    private javax.swing.JList<Onibus> listaOnibus;
+    private javax.swing.JList<String> listaMotoristas;
+    private javax.swing.JList<String> listaOnibus;
     // End of variables declaration//GEN-END:variables
 }
