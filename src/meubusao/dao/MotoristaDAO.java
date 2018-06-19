@@ -25,7 +25,7 @@ public class MotoristaDAO {
             Connection con = ConnectionFactory.getConnection();
             try{
                 PreparedStatement stm = con.prepareStatement("INSERT INTO motorista VALUES (?,?,?)");  //cpf INT(11), nome(VARCHAR(45), situacao INT(1)
-                stm.setInt(1,Integer.parseInt(t.getCpf()));
+                stm.setString(1,t.getCpf());
                 stm.setString(2,t.getNome());
                 stm.setInt(3,t.getSituacao());
                 stm.execute(); // executa o statement
