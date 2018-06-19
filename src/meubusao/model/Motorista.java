@@ -5,11 +5,11 @@ package meubusao.model;
  */
 public class Motorista {
     
-    private String nome;
     private String cpf;
+    private String nome;
     private int situacao;
 
-    public Motorista(String nome, String cpf, int situacao) throws IllegalArgumentException{
+    public Motorista(String cpf, String nome, int situacao) throws IllegalArgumentException{
         if (isValidNome(nome))
             this.nome = nome;
         if(isValidCpf(cpf))
