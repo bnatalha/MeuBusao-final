@@ -43,7 +43,7 @@ public class AddUsuario extends javax.swing.JDialog {
         cadastrar = new javax.swing.JButton();
         ehVIP = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Cadastrando um novo usuario");
 

@@ -124,6 +124,11 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         addLinha.setText("Adicionar Linha");
+        addLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLinhaActionPerformed(evt);
+            }
+        });
 
         addPontos.setText("Adicionar Pontos");
 
@@ -224,6 +229,9 @@ public class TelaInicial extends javax.swing.JFrame {
         modelMotorista.removeAllElements();
         modelOnibus.removeAllElements();
         
+        listaOnibus.removeAll();
+        listaMotoristas.removeAll();
+        
         populaMotoristasString();
         populaOnibusString();
         
@@ -231,6 +239,10 @@ public class TelaInicial extends javax.swing.JFrame {
         listaMotoristas.setModel(modeloP);
  
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void addLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLinhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addLinhaActionPerformed
 
     
  

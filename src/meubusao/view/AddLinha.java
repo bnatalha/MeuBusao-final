@@ -64,7 +64,7 @@ public class AddLinha extends javax.swing.JDialog {
         pontosAdicionadosJScroll = new javax.swing.JList<>();
         addPontoBotao = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Cadastrando uma nova Linha");
 

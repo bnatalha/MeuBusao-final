@@ -5,6 +5,9 @@
  */
 package meubusao.view;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Pedro Neto
@@ -17,6 +20,38 @@ public class DetalhesOnibus extends javax.swing.JDialog {
     public DetalhesOnibus(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setSize(1000, 500);
+    }
+    
+    // Adiciona as INformacoes da viegens na tabela
+    public void addRowToJTable()
+    {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+       //Lita de String das Viagens 
+       ArrayList<String[]> list = null;
+        
+        
+        Object rowData[] = new Object[4];
+        for(int i = 0; i < list.size(); i++)
+        {
+            rowData[0] = list.get(i)[0];
+            rowData[1] = list.get(i)[1];
+            rowData[2] = list.get(i)[2];
+            rowData[3] = list.get(i)[3];
+            rowData[4] = list.get(i)[4];
+            rowData[5] = list.get(i)[5];
+            rowData[6] = list.get(i)[3];
+            rowData[7] = list.get(i)[7];
+            rowData[8] = list.get(i)[8];
+            rowData[9] = list.get(i)[9];
+            rowData[10] = list.get(i)[10];
+            rowData[11] = list.get(i)[11];
+            rowData[12] = list.get(i)[12];
+            rowData[13] = list.get(i)[13];
+            model.addRow(rowData);
+        }
+                
     }
 
     /**
@@ -33,6 +68,11 @@ public class DetalhesOnibus extends javax.swing.JDialog {
         placaText = new javax.swing.JLabel();
         situacaoText = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        viagens = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Placa:");
 
@@ -40,32 +80,65 @@ public class DetalhesOnibus extends javax.swing.JDialog {
 
         jLabel7.setText("Detalhes do ônibus:");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        viagens.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        viagens.setText("Viagens");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Cont. passageiros", "Vel. média", "Hora inicial", "Hora final", "Pass. Meia", "Pass. Inteira", "Pass. Gratuita", "Pass. Total", "Dia", "Gasolina", "Infracoes", "Linha", "Placa"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(situacaoText)
-                            .addComponent(placaText)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel7)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(situacaoText)
+                                    .addComponent(placaText)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(143, 143, 143)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(viagens)))
+                        .addGap(0, 229, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(placaText))
@@ -73,7 +146,11 @@ public class DetalhesOnibus extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(situacaoText))
-                .addGap(105, 105, 105))
+                .addGap(39, 39, 39)
+                .addComponent(viagens)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -82,7 +159,10 @@ public class DetalhesOnibus extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel placaText;
     private javax.swing.JLabel situacaoText;
+    private javax.swing.JLabel viagens;
     // End of variables declaration//GEN-END:variables
 }

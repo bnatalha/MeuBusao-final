@@ -45,6 +45,8 @@ public class AddPonto extends javax.swing.JDialog {
         pontoCoordenada = new javax.swing.JLabel();
         pontoCoordenadaField = new javax.swing.JTextField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel1.setText("Cadastrando um novo Ponto");
 
         pontoIdField.addActionListener(new java.awt.event.ActionListener() {

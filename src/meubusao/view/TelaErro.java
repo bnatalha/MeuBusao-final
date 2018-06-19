@@ -32,7 +32,7 @@ public class TelaErro extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(565, 255));
 
         jLabel1.setFont(new java.awt.Font("Nimbus Mono L", 1, 18)); // NOI18N

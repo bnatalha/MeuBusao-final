@@ -28,24 +28,9 @@ public class DetalhesMotorista extends javax.swing.JDialog {
         initComponents();
         addRowToJTable();
         viagensLista = new ArrayList<>();
+        this.setSize(1000, 500);
     }
-    
-    public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DetalhesMotorista dialog = new DetalhesMotorista(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-    
     public ArrayList<Viagem> getViagensMotorista() {
         
         return null;
@@ -87,33 +72,75 @@ public class DetalhesMotorista extends javax.swing.JDialog {
         return list;
     }
     
-// added rows from arraylist to jtable
+// Adiciona as INformacoes da viegens na tabela
     public void addRowToJTable()
     {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        ArrayList<User> list = ListUsers();
+        
+       //Lita de String das Viagens 
+       ArrayList<String[]> list = null;
+        
+        
         Object rowData[] = new Object[4];
         for(int i = 0; i < list.size(); i++)
         {
-            rowData[0] = list.get(i).id;
-            rowData[1] = list.get(i).fname;
-            rowData[2] = list.get(i).lname;
-            rowData[3] = list.get(i).age;
+            rowData[0] = list.get(i)[0];
+            rowData[1] = list.get(i)[1];
+            rowData[2] = list.get(i)[2];
+            rowData[3] = list.get(i)[3];
+            rowData[4] = list.get(i)[4];
+            rowData[5] = list.get(i)[5];
+            rowData[6] = list.get(i)[3];
+            rowData[7] = list.get(i)[7];
+            rowData[8] = list.get(i)[8];
+            rowData[9] = list.get(i)[9];
+            rowData[10] = list.get(i)[10];
+            rowData[11] = list.get(i)[11];
+            rowData[12] = list.get(i)[12];
+            rowData[13] = list.get(i)[13];
             model.addRow(rowData);
         }
-        
-        //COMO VAMOS POPULAR AS VIAGENS
-//        for(int i = 0; i < viagensLista.size(); i++)
-//        {
-//            rowData[0] = list.get(i).id;
-//            rowData[1] = list.get(i).fname;
-//            rowData[2] = list.get(i).lname;
-//            rowData[3] = list.get(i).age;
-//            model.addRow(rowData);
-//        }
-        
-        
                 
+    }
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AddLinha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AddLinha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AddLinha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AddLinha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                DetalhesMotorista dialog = new DetalhesMotorista(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
     }
 
     /**
@@ -136,6 +163,8 @@ public class DetalhesMotorista extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel1.setText("Nome:");
 
         jLabel2.setText("CPF:");
@@ -150,17 +179,17 @@ public class DetalhesMotorista extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Cont. passageiros", "Vel. média", "Hora inicial", "Hora final"
+                "ID", "Cont. passageiros", "Vel. média", "Hora inicial", "Hora final", "Pass. Meia", "Pass. Inteira", "Pass. Gratuita", "Pass. Total", "Dia", "Gasolina", "Infracoes", "Linha", "Placa"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, true
+                false, false, true, false, true, true, true, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -169,8 +198,8 @@ public class DetalhesMotorista extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -194,10 +223,10 @@ public class DetalhesMotorista extends javax.swing.JDialog {
                         .addComponent(jLabel7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(viagens)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
@@ -220,7 +249,7 @@ public class DetalhesMotorista extends javax.swing.JDialog {
                 .addGap(68, 68, 68)
                 .addComponent(viagens)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
