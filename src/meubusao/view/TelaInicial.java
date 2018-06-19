@@ -48,7 +48,7 @@ public class TelaInicial extends javax.swing.JFrame {
             modeloM.addElement(s[0] + " " + s[1]);
        }
         
-        listaOnibus.setModel(modeloP);
+        listaMotoristas.setModel(modeloP);
     }
     
     public void populaOnibusString() {
@@ -220,7 +220,12 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_listaMotoristasValueChanged
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-
+        
+        modelMotorista.removeAllElements();
+        modelOnibus.removeAllElements();
+        populaMotoristasString();
+        populaOnibusString();
+ 
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     

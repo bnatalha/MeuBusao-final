@@ -100,6 +100,7 @@ public class AddMotorista extends javax.swing.JDialog {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         try{
             MotoristaController.saveMotorista(jTextFieldNome.getText(),jTextFieldCpf.getText(),Integer.parseInt(jTextFieldSituacao.getText()));
+            JOptionPane.showMessageDialog(this, "Deu Certo!", "Aviso", JOptionPane.INFORMATION_MESSAGE);    
         }catch (Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);    
         }
