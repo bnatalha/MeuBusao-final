@@ -16,9 +16,9 @@ public class Linha {
     Linha(){}
     
     public Linha(int id, String nome) throws IllegalArgumentException {
-        if(nome == null || nome.length() == 0) throw new IllegalArgumentException("nome não pode ser nulo");
         this.id = id;
-        this.nome = nome;
+        if(isValidNome(nome))
+            this.nome = nome;
     }
 
     public int getId() {
@@ -34,8 +34,14 @@ public class Linha {
     }
 
     public void setNome(String nome) throws IllegalArgumentException {
-        if(nome == null || nome.length() == 0) throw new IllegalArgumentException("nome não pode ser nulo");
-        this.nome = nome;
+        if(isValidNome(nome))
+            this.nome = nome;
+    }
+    
+    public static boolean isValidNome(String nome) {
+        if(nome == null || (nome.length() <= 0 || nome.length() > 45))
+            throw new IllegalArgumentException("nome tem que conter entre 1 a 45 caracteres");
+        return true;
     }
 
     @Override
