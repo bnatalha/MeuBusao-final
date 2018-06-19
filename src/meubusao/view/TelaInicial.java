@@ -18,8 +18,47 @@ import meubusao.controller.*;
 public class TelaInicial extends javax.swing.JFrame {
  
     
+    DefaultListModel<String> modelOnibus = new DefaultListModel<>();
+    DefaultListModel<String> modelMotorista = new DefaultListModel<>();
+    
+    ArrayList<String[]> listaOnibusBanco = new ArrayList<>();
+    ArrayList<String[]> listaMotoristaBanco = new ArrayList<>();
+    DefaultListModel modeloM = new DefaultListModel();
+    DefaultListModel modeloP = new DefaultListModel();
+ 
     public TelaInicial() {
-        initComponents(); 
+        initComponents();
+ 
+        
+        listaOnibus.setModel(modeloM);
+        listaMotoristas.setModel(modeloP);
+ 
+        listaOnibus.removeAll();
+        listaMotoristas.removeAll();
+        
+        populaMotoristasString();
+        populaOnibusString();
+ 
+    }
+    
+    public void populaMotoristasString() {
+        
+       listaMotoristaBanco = MotoristaController.getAllMotorista();
+        for(String[] s : listaMotoristaBanco) {
+            modeloM.addElement(s[0] + " " + s[1]);
+       }
+        
+        listaOnibus.setModel(modeloP);
+    }
+    
+    public void populaOnibusString() {
+        listaOnibusBanco = OnibusController.getAllOnibus();
+        
+        for(String[] s : listaOnibusBanco) {
+            modeloM.addElement(s[0] + " " + s[1]);
+       }
+        
+        listaOnibus.setModel(modeloM);
     }
  
     /**
