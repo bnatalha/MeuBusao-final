@@ -45,7 +45,7 @@ public class TelaInicial extends javax.swing.JFrame {
         
        listaMotoristaBanco = MotoristaController.getAllMotorista();
         for(String[] s : listaMotoristaBanco) {
-            modeloM.addElement(s[0] + " " + s[1]);
+            modeloP.addElement(s[0] + " " + s[1]);
        }
         
         listaMotoristas.setModel(modeloP);
@@ -223,8 +223,12 @@ public class TelaInicial extends javax.swing.JFrame {
         
         modelMotorista.removeAllElements();
         modelOnibus.removeAllElements();
+        
         populaMotoristasString();
         populaOnibusString();
+        
+        listaOnibus.setModel(modeloM);
+        listaMotoristas.setModel(modeloP);
  
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
