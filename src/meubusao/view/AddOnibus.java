@@ -35,8 +35,8 @@ public class AddOnibus extends javax.swing.JDialog {
         jLabelSituacao = new javax.swing.JLabel();
         jLabelPlaca = new javax.swing.JLabel();
         jTextFieldPlaca = new javax.swing.JTextField();
-        jComboBoxSituacao = new javax.swing.JComboBox<>();
         jButtonAdd = new javax.swing.JButton();
+        jTextFieldSituacao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,13 +47,6 @@ public class AddOnibus extends javax.swing.JDialog {
         jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPlacaActionPerformed(evt);
-            }
-        });
-
-        jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0","1","2","3","4","5","6","7","8","9" }));
-        jComboBoxSituacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSituacaoActionPerformed(evt);
             }
         });
 
@@ -78,8 +71,8 @@ public class AddOnibus extends javax.swing.JDialog {
                             .addComponent(jLabelSituacao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldPlaca)
-                            .addComponent(jComboBoxSituacao, 0, 176, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(jTextFieldSituacao))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +85,7 @@ public class AddOnibus extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSituacao)
-                    .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -105,14 +98,10 @@ public class AddOnibus extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPlacaActionPerformed
 
-    private void jComboBoxSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSituacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxSituacaoActionPerformed
-
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         try{
             OnibusDAO.create(new Onibus(
-                    jTextFieldPlaca.getText(), Integer.parseInt(jComboBoxSituacao.getSelectedItem().toString()))
+                    jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldSituacao.getText()))
             );
 //            JOptionPane.showMessageDialog(this, "Onibus adicionado com sucesso." );            
         }catch (Exception e){
@@ -164,9 +153,9 @@ public class AddOnibus extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
-    private javax.swing.JComboBox<String> jComboBoxSituacao;
     private javax.swing.JLabel jLabelPlaca;
     private javax.swing.JLabel jLabelSituacao;
     private javax.swing.JTextField jTextFieldPlaca;
+    private javax.swing.JTextField jTextFieldSituacao;
     // End of variables declaration//GEN-END:variables
 }

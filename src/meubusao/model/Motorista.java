@@ -14,7 +14,8 @@ public class Motorista {
             this.nome = nome;
         if(isValidCpf(cpf))
             this.cpf = cpf;
-        this.situacao = situacao;
+        if(isValidSituacao(situacao))
+            this.situacao = situacao;
     }
 
     public String getNome() {

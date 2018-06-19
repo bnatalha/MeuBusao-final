@@ -16,8 +16,8 @@ import meubusao.model.Login;
  */
 public class LoginDAO {
     /**
-     * Recupera um ArrayList com todos os ônibus do banco.
-     * @return Um ArrayList com os possíveis resultados. (pode ser null)
+     * Recupera o Login com o usiario requisitado do banco, se existir.
+     * @return Um objeto Login. (pode ser null)
      */    
     public static Login readUser (String user) throws RuntimeException{        
         Login t = null;

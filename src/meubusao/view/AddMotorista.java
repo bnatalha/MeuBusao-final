@@ -5,23 +5,20 @@
  */
 package meubusao.view;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+import meubusao.controller.MotoristaController;
 
 /**
  *
- * @author cadoafb
+ * @author Automatic
  */
-public class AddMotorista extends javax.swing.JFrame {
+public class AddMotorista extends javax.swing.JDialog {
 
     /**
-     * Creates new form AddUsuario
+     * Creates new form NewJDialog
      */
-    private boolean flagVIP = false;
-    
-    public AddMotorista() {
+    public AddMotorista(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -34,41 +31,26 @@ public class AddMotorista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        motoristaNomeField = new javax.swing.JTextField();
-        cpfField = new javax.swing.JPasswordField();
-        situacaoMotoristaField = new javax.swing.JPasswordField();
-        motoristaNome = new javax.swing.JLabel();
-        cpf = new javax.swing.JLabel();
-        situacaoMotorista = new javax.swing.JLabel();
-        cadastrar = new javax.swing.JButton();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelCpf = new javax.swing.JLabel();
+        jLabelSituacao = new javax.swing.JLabel();
+        jTextNome = new javax.swing.JTextField();
+        jTextFieldCpf = new javax.swing.JTextField();
+        jButtonAdd = new javax.swing.JButton();
+        jTextFieldSituacao = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Cadastrando um novo Motorista");
+        jLabelNome.setText("Nome:");
 
-        cpfField.addActionListener(new java.awt.event.ActionListener() {
+        jLabelCpf.setText("Cpf:");
+
+        jLabelSituacao.setText("Situacao:");
+
+        jButtonAdd.setText("Adicionar");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfFieldActionPerformed(evt);
-            }
-        });
-
-        situacaoMotoristaField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                situacaoMotoristaFieldActionPerformed(evt);
-            }
-        });
-
-        motoristaNome.setText("Nome:");
-
-        cpf.setText("CPF:");
-
-        situacaoMotorista.setText("Situação:");
-
-        cadastrar.setText("Cadastrar");
-        cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarActionPerformed(evt);
+                jButtonAddActionPerformed(evt);
             }
         });
 
@@ -77,84 +59,51 @@ public class AddMotorista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAdd)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(cadastrar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(situacaoMotorista)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cpf)
-                                .addComponent(motoristaNome)))
-                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelSituacao)
+                            .addComponent(jLabelCpf)
+                            .addComponent(jLabelNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(motoristaNomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(situacaoMotoristaField)
-                            .addComponent(cpfField))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                            .addComponent(jTextNome)
+                            .addComponent(jTextFieldCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(jTextFieldSituacao))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(motoristaNomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(motoristaNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelNome)
+                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpfField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpf))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelCpf)
+                    .addComponent(jTextFieldCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(situacaoMotoristaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(situacaoMotorista))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(cadastrar)
-                .addGap(25, 25, 25))
+                    .addComponent(jLabelSituacao)
+                    .addComponent(jTextFieldSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAdd)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cpfFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfFieldActionPerformed
-
-    private void situacaoMotoristaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_situacaoMotoristaFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_situacaoMotoristaFieldActionPerformed
-    
-    /**
-     * Tela onde o usuario vip pode cadastrar um novo usuario
-     * @param evt 
-     */
-    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        File log = new File("/home/cadoafb/informacoesUsuario.log");
-        try {
-            if (log.exists() == false) {
-                log.createNewFile();
-            }
-            if (!cpfField.getText().equals(situacaoMotoristaField.getText())) {
-                System.out.println("Suas senhas não combinam.");
-            } 
-            else {
-                PrintWriter out = new PrintWriter(new FileWriter(log, true));
-                out.append(motoristaNomeField.getText() + " " + cpfField.getText() + " " + flagVIP + "\n");
-                out.close();
-                this.setVisible(false);
-            }
-        } catch (IOException e) {
-            System.out.println("COULD NOT LOG!!");
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        try{
+            MotoristaController.saveMotorista(jLabelNome.getText(),jLabelCpf.getText(),Integer.parseInt(jTextFieldSituacao.getText()));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);    
         }
-        
-    }//GEN-LAST:event_cadastrarActionPerformed
+    }//GEN-LAST:event_jButtonAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,22 +133,28 @@ public class AddMotorista extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMotorista().setVisible(true);
+                AddMotorista dialog = new AddMotorista(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastrar;
-    private javax.swing.JLabel cpf;
-    private javax.swing.JPasswordField cpfField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel motoristaNome;
-    private javax.swing.JTextField motoristaNomeField;
-    private javax.swing.JLabel situacaoMotorista;
-    private javax.swing.JPasswordField situacaoMotoristaField;
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JLabel jLabelCpf;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelSituacao;
+    private javax.swing.JTextField jTextFieldCpf;
+    private javax.swing.JTextField jTextFieldSituacao;
+    private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }

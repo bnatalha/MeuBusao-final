@@ -61,9 +61,32 @@ public class MotoristaDAO {
             con.close();
         }catch(SQLException e){ 
             System.err.println(e);
-            throw new RuntimeException("erro ao recuperar motorista",e);
+            throw new RuntimeException("erro ao recuperar motorista(s)",e);
         }
         return t_list;
+    }
+    
+    /**
+     * Recupera o motorista com o cpf requisitado do banco, se existir.
+     * @return Um objeto Motorista. (pode ser null)
+     */    
+    public static Motorista readCpf (String cpf) throws RuntimeException{        
+        Motorista t = null;
+        Connection con = ConnectionFactory.getConnection();
+        try{
+            PreparedStatement stm = con.prepareStatement("SELECT * FROM motorista WHERE cpf=?"); // prepara statement de inserção
+            stm.setString(1,cpf);
+            ResultSet rs = stm.executeQuery(); // executa statement
+            if(rs.next()) // se não for vazio
+                t = new Motorista(rs.getString(1),rs.getString(2),rs.getInt(3)); // garantido login e senha válido;
+            // fecha conexões
+            stm.close();
+            con.close();
+            return t;
+        }catch(SQLException e){ 
+            System.err.println(e);
+            throw new RuntimeException("erro ao recuperar motorista",e);
+        }
     }
     
     /**
