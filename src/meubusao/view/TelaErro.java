@@ -9,12 +9,13 @@ package meubusao.view;
  *
  * @author cadoafb
  */
-public class TelaErro extends javax.swing.JFrame {
+public class TelaErro extends javax.swing.JDialog {
 
     /**
-     * Creates new form TelaErro
+     * Creates new form NewJDialog
      */
-    public TelaErro() {
+    public TelaErro(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         
     }
@@ -104,7 +105,14 @@ public class TelaErro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaErro().setVisible(true);
+                TelaErro dialog = new TelaErro(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

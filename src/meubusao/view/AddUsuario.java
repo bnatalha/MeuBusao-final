@@ -14,14 +14,13 @@ import java.io.PrintWriter;
  *
  * @author cadoafb
  */
-public class AddUsuario extends javax.swing.JFrame {
+public class AddUsuario extends javax.swing.JDialog {
 
     /**
-     * Creates new form AddUsuario
+     * Creates new form NewJDialog
      */
-    private boolean flagVIP = false;
-    
-    public AddUsuario() {
+    public AddUsuario(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -148,28 +147,28 @@ public class AddUsuario extends javax.swing.JFrame {
      * @param evt 
      */
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        File log = new File("/home/cadoafb/informacoesUsuario.log");
-        try {
-            if (log.exists() == false) {
-                log.createNewFile();
-            }
-            if (!novaS.getText().equals(confirmaS.getText())) {
-                System.out.println("Suas senhas não combinam.");
-            } 
-            else {
-                PrintWriter out = new PrintWriter(new FileWriter(log, true));
-                out.append(novoU.getText() + " " + novaS.getText() + " " + flagVIP + "\n");
-                out.close();
-                this.setVisible(false);
-            }
-        } catch (IOException e) {
-            System.out.println("COULD NOT LOG!!");
-        }
+//        File log = new File("/home/cadoafb/informacoesUsuario.log");
+//        try {
+//            if (log.exists() == false) {
+//                log.createNewFile();
+//            }
+//            if (!novaS.getText().equals(confirmaS.getText())) {
+//                System.out.println("Suas senhas não combinam.");
+//            } 
+//            else {
+//                PrintWriter out = new PrintWriter(new FileWriter(log, true));
+//                out.append(novoU.getText() + " " + novaS.getText() + " " + flagVIP + "\n");
+//                out.close();
+//                this.setVisible(false);
+//            }
+//        } catch (IOException e) {
+//            System.out.println("COULD NOT LOG!!");
+//        }
         
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void ehVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ehVIPActionPerformed
-        flagVIP = true;
+
     }//GEN-LAST:event_ehVIPActionPerformed
 
     /**
@@ -200,9 +199,16 @@ public class AddUsuario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddUsuario().setVisible(true);
+                AddUsuario dialog = new AddUsuario(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

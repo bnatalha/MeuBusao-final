@@ -14,16 +14,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Pedro Neto
  */
-public class DetalhesMotorista extends javax.swing.JPanel {
+public class DetalhesMotorista extends javax.swing.JDialog {
 
     /**
-     * Creates new form DetalhesMotorista
+     * Creates new form NewJDialog
      */
     
     private ArrayList<Viagem> viagensLista;
             
             
-    public DetalhesMotorista() {
+    public DetalhesMotorista(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         addRowToJTable();
         viagensLista = new ArrayList<>();
@@ -32,15 +33,16 @@ public class DetalhesMotorista extends javax.swing.JPanel {
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                new DetalhesMotorista().setVisible(true);
-                JFrame e = new JFrame();
-                e.add(new DetalhesMotorista());
-                e.setVisible(true);
+                DetalhesMotorista dialog = new DetalhesMotorista(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
-            
-           
         });
     }
     

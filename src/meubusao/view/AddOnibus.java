@@ -103,6 +103,7 @@ public class AddOnibus extends javax.swing.JDialog {
             OnibusDAO.create(new Onibus(
                     jTextFieldPlaca.getText(), Integer.parseInt(jTextFieldSituacao.getText()))
             );
+            JOptionPane.showMessageDialog(this, "Deu Certo!", "Aviso", JOptionPane.INFORMATION_MESSAGE);    
 //            JOptionPane.showMessageDialog(this, "Onibus adicionado com sucesso." );            
         }catch (Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

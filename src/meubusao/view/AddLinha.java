@@ -15,14 +15,13 @@ import java.io.PrintWriter;
  *
  * @author cadoafb
  */
-public class AddLinha extends javax.swing.JFrame {
+public class AddLinha extends javax.swing.JDialog {
 
     /**
-     * Creates new form AddUsuario
+     * Creates new form NewJDialog
      */
-    private boolean flagVIP = false;
-    
-    public AddLinha() {
+    public AddLinha(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -149,7 +148,14 @@ public class AddLinha extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddLinha().setVisible(true);
+                AddLinha dialog = new AddLinha(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

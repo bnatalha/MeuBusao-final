@@ -9,12 +9,13 @@ package meubusao.view;
  *
  * @author Pedro Neto
  */
-public class DetalhesOnibus extends javax.swing.JPanel {
+public class DetalhesOnibus extends javax.swing.JDialog {
 
     /**
-     * Creates new form DetalhesMotorista
+     * Creates new form NewJDialog
      */
-    public DetalhesOnibus() {
+    public DetalhesOnibus(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
