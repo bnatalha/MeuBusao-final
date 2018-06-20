@@ -62,6 +62,10 @@ public class PontoDAO {
         return t_list;
     }
     
+    /**
+     * pra teste
+     * @param args 
+     */
     public static void main(String args[]) {
         Ponto p = new Ponto(141,"avana","POINT(1 52)");
         PontoDAO.create(p);

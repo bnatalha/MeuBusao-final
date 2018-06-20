@@ -40,4 +40,16 @@ public class Ponto {
     public String toString() {
         return "Ponto{" + "id=" + id + ", nome=" + nome + ", coordenadas=" + coordenadas + '}';
     }
+    
+    public static String[] toArrayString(Ponto p){
+        String stra[] = null;
+        
+        if(p != null){
+            stra = new String[3];
+            stra[0] = (new Integer(p.getId())).toString();
+            stra[1] = p.getNome();
+            stra[2] = p.getCoordenadas();
+        }
+        return stra;
+    }
 }

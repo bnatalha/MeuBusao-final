@@ -79,14 +79,20 @@ public class LinhaDAO {
         }
     }
     
+    /**
+     * teste
+     * @param args 
+     */
     public static void main(String args[]) {
         try{
             ArrayList<Ponto> ps = PontoDAO.read();
             Linha l = new Linha(6,"six",ps);
             System.out.println(l+"\n----------");
             
+            // teste create
             LinhaDAO.create(l);
             System.out.println("Recuperado:");
+            //teste read
             System.out.println(LinhaDAO.readId((new Integer(l.getId())).toString()));
         }catch (Exception e){
             System.err.println(e);
