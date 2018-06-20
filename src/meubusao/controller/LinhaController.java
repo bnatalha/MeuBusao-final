@@ -5,6 +5,7 @@
  */
 package meubusao.controller;
 
+import java.util.ArrayList;
 import meubusao.dao.LinhaDAO;
 import meubusao.dao.PontoDAO;
 import meubusao.model.Linha;
@@ -22,9 +23,14 @@ public class LinhaController {
      * @return True
     */
     public static boolean saveLinha (String id, String nome, ArrayList<String[]>pontos){
+        ArrayList<Ponto> ps = new ArrayList<Ponto>();
+        for(String[] str : pontos){ // enche ps
+            ps.add(Ponto.fromStringArray(str));
+        }
         
-        Linha m = new Linha(Integer.parseInt(id),nome,);
-        return MotoristaDAO.create(m);
+        Linha l = new Linha(Integer.parseInt(id),nome,ps);
+        
+        return LinhaDAO.create(l);
     }
     
 }

@@ -43,4 +43,15 @@ public class Onibus {
     public String toString(){
         return (this.getPlaca() + " " + this.getSituacao().toString());
     }
+
+    public static String[] toArrayString(Onibus o){
+        String stra[] = null;
+        
+        if(o != null){
+            stra = new String[2];
+            stra[0] = o.getPlaca();
+            stra[1] = o.getSituacao().toString();
+        }
+        return stra;
+    }
 }

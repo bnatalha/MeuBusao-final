@@ -52,4 +52,14 @@ public class Ponto {
         }
         return stra;
     }
+    
+    public static Ponto fromStringArray(String[] ponto){        
+        Ponto p = null;
+        if(ponto != null){
+            p = new Ponto(Integer.parseInt(ponto[0]), // id
+                    ponto[1], // nome
+                    ponto[2]); // POINT(x x)
+        }
+        return p;
+    }
 }

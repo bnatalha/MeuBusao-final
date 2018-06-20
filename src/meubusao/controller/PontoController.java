@@ -25,8 +25,8 @@ public class PontoController {
         return PontoDAO.create(p);
     }
     
-            /**
-     * Recupera os ônibus do BD como lista de strings.
+    /**
+     * Recupera os Pontos do BD como lista de strings.
      * @return null se a lista de onibus recuperada do BD for null
      */
     public static ArrayList<String[]> getAllPonto(){
@@ -44,4 +44,20 @@ public class PontoController {
         }
         return ts_str;
     }
+    
+    /**
+     * Recupera os Pontos do BD como lista de strings.
+     * @return null se a lista de onibus recuperada do BD for null
+     */
+    public static ArrayList<String[]> transtlatePonto(){
+        ArrayList<Ponto> ts = PontoDAO.read(); // lista de onibus do BD
+        ArrayList<String[]> ts_str = null;  // lista a ser retornada
+        if(ts != null){
+            ts_str = new ArrayList<String[]>();
+            for(Ponto t : ts){ 
+                ts_str.add(t.toArrayString(t));
+            }            
+        }
+        return ts_str;
+    }    
 }

@@ -67,4 +67,17 @@ public class Motorista {
     public String toString(){
         return (this.getNome() + " " + this.getCpf());
     }
+    
+    public static String[] toArrayString(Motorista m){
+        String stra[] = null;
+        
+        if(m != null){
+            stra= new String[3];
+            stra[0] = m.getNome();
+            stra[1] = m.getCpf();
+            stra[2] = (new Integer(m.getSituacao())).toString();
+        }
+        return stra;
+    }
+
 }

@@ -37,24 +37,9 @@ public class MotoristaController {
         if(ms != null){
             ms_str = new ArrayList<String[]>();
             for(Motorista m : ms){ // converte onibus para string e os adiciona a 'os_str'
-                String m_str[] = new String[3];
-                m_str[0] = m.getNome();
-                m_str[1] = m.getCpf();
-                m_str[2] = (new Integer(m.getSituacao())).toString();
-                ms_str.add(m_str);
+                ms_str.add(m.toArrayString(m));
             }            
         }
         return ms_str;
-    }
-    
-    /**
-     * Checa se existe motorista com um cpf combinam
-     * @param user usuário
-     * @param pass senha
-     * @return True
-    */
-    public static boolean saveMotorista (String nome, String cpf, int situacao){
-        Motorista m = new Motorista(nome,cpf,situacao);
-        return MotoristaDAO.create(m);
     }
 }

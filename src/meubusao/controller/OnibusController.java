@@ -37,10 +37,7 @@ public class OnibusController {
         if(os != null){
             os_str = new ArrayList<String[]>();
             for(Onibus o : os){ // converte onibus para string e os adiciona a 'os_str'
-                String o_str[] = new String[2];
-                o_str[0] = o.getPlaca();
-                o_str[1] = o.getSituacao().toString();
-                os_str.add(o_str);
+                os_str.add(o.toArrayString(o));
             }            
         }
         return os_str;
