@@ -13,6 +13,18 @@ import meubusao.model.Motorista;
  * @author Automatic
  */
 public class MotoristaController {
+
+    /**
+     * Salva um motorista
+     * @param cpf
+     * @param nome
+     * @param situacao
+     * @return 
+     */
+    public static boolean saveMotorista (String cpf, String nome, int situacao){
+        Motorista m = new Motorista(cpf,nome,situacao);        
+        return MotoristaDAO.create(m);
+    }
     
     /**
      * Checa se existe motorista com um cpf combinam

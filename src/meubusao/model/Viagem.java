@@ -5,6 +5,8 @@
  */
 package meubusao.model;
 
+//"ID", "Cont. passageiros", "Vel. média", "Hora inicial", "Hora final", "Pass. Meia", "Pass. Inteira", "Pass. Gratuita", "Pass. Total", "Dia", "Gasolina", "Infracoes", "Linha", "Placa"
+
 import java.util.Date;
 
 /**
