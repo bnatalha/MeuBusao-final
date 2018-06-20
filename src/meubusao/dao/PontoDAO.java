@@ -57,7 +57,7 @@ public class PontoDAO {
             con.close();
         }catch(SQLException e){ 
             System.err.println(e);
-            throw new RuntimeException("erro ao recuperar motorista(s)",e);
+            throw new RuntimeException("erro ao recuperar ponto(s)",e);
         }
         return t_list;
     }

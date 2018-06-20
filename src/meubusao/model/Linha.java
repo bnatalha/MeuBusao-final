@@ -15,15 +15,20 @@ public class Linha {
     private int id;
     private String nome;
     private ArrayList<Ponto> pontos;
-    
+  
     Linha(){}
-    
-    public Linha(int id, String nome) throws IllegalArgumentException {
+
+    public Linha(int id, String nome, ArrayList<Ponto> pontos) {
         this.id = id;
         if(isValidNome(nome))
             this.nome = nome;
+        if(pontos != null)
+            this.pontos = pontos;
+        else{
+            throw new IllegalArgumentException("Pontos não podem ser nulos");
+        }
     }
-
+    
     public int getId() {
         return id;
     }
@@ -41,6 +46,15 @@ public class Linha {
             this.nome = nome;
     }
     
+    public ArrayList<Ponto> getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(ArrayList<Ponto> pontos) {
+        this.pontos = pontos;
+    }
+  
+    
     public static boolean isValidNome(String nome) {
         if(nome == null || (nome.length() <= 0 || nome.length() > 45))
             throw new IllegalArgumentException("nome tem que conter entre 1 a 45 caracteres");
@@ -49,7 +63,13 @@ public class Linha {
 
     @Override
     public String toString() {
-        return "Linha{" + "id=" + id + ", nome=" + nome + '}';
+        StringBuffer listaPontos = new StringBuffer();
+        int i = 0;
+        for(Ponto p: pontos){
+            listaPontos.append(p.toString());
+            listaPontos.append('\n');
+        }
+        return "Linha{" + "id=" + id + ", nome=" + nome + ", pontos=\n" + listaPontos.toString() + '}';
     }
     
 }
